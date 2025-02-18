@@ -1,6 +1,7 @@
 package academic.driver;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import academic.model.Course;
 import academic.model.Student;
 import academic.model.Enrollment;
@@ -12,12 +13,13 @@ import academic.model.Enrollment;
 public class Driver1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Course[] courses = new Course[100];
-        Student[] students = new Student[100];
-        Enrollment[] enrollments = new Enrollment[100];
-        int courseCount = 0, studentCount = 0, enrollmentCount = 0;
+        
+        
+        ArrayList<Course> courses = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Enrollment> enrollments = new ArrayList<>();
 
-        while (true) {
+        while (scanner.hasNextLine()) {
             String input = scanner.nextLine();
             if (input.equals("---")) {
                 break;
@@ -25,49 +27,52 @@ public class Driver1 {
             
             String[] data = input.split("#");
             String type = data[0];
-            
+
             switch (type) {
                 case "course-add":
                     if (data.length == 5) {
-                        String nim = data[1];
-                        String courseID = data[2];
-                        int sks = Integer.parseInt(data[3]);
-                        String grade = data[4];
-                        courses[courseCount++] = new Course(nim, courseID, sks, grade);
+                        String id = data[1];
+                        String name = data[2];
+                        int credit = Integer.parseInt(data[3]);
+                        String passingGrade = data[4];
+                        courses.add(new Course(id, name, credit, passingGrade));
                     }
                     break;
                 case "student-add":
                     if (data.length == 5) {
-                        String nim = data[1];
+                        String id = data[1];
                         String name = data[2];
                         int year = Integer.parseInt(data[3]);
-                        String program = data[4];
-                        students[studentCount++] = new Student(nim, name, year, program);
+                        String studyProgram = data[4];
+                        students.add(new Student(id, name, year, studyProgram));
                     }
                     break;
                 case "enrollment-add":
                     if (data.length == 5) {
-                        String nim = data[1];
-                        String nim2 = data[2];
-                        String year = data[3];
-                        String term = data[4];
-                        String status = "None"; // Nilai default untuk status
-                        enrollments[enrollmentCount++] = new Enrollment(nim, nim2, year, term, status);
+                        String courseId = data[1];
+                        String studentId = data[2];
+                        String academicYear = data[3];
+                        String semester = data[4];
+                        String grade = "None"; 
+                        enrollments.add(new Enrollment(courseId, studentId, academicYear, semester, grade));
                     }
                     break;
             }
         }
         scanner.close();
 
-       
-        for (int i = courseCount - 1; i >= 0; i--) {
-            System.out.println(courses[i].toString());
+        for (int i = courses.size() - 1; i >= 0; i--) {
+            System.out.println(courses.get(i));
         }
-        for (int i = 0; i < studentCount; i++) {
-            System.out.println(students[i].toString());
+
+
+        for (Student student : students) {
+            System.out.println(student);
         }
-        for (int i = 0; i < enrollmentCount; i++) {
-            System.out.println(enrollments[i].toString());
+
+
+        for (Enrollment enrollment : enrollments) {
+            System.out.println(enrollment);
         }
     }
 }
