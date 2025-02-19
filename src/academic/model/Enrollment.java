@@ -1,29 +1,46 @@
 package academic.model;
 
+/**
+ * @author 12S23030 - Simorangkir Jonathan
+ * @author 12S23046- Anastasya T.B Siahaan
+ */
 public class Enrollment {
-    private String NIM;
-    private String NIM2;
-    private String tahun;
-    private String prodi;
+    private String studentId;
+    private String courseId;
+    private String academicYear;
+    private String semester;
     private String status;
 
-    public Enrollment(String _NIM, String _NIM2, String _tahun, String _prodi, String _status) {
-        this.NIM = _NIM;
-        this.NIM2 = _NIM2;
-        this.tahun = _tahun;
-        this.prodi = _prodi;
-        this.status = _status;
+    public Enrollment(String studentId, String courseId, String academicYear, String semester, String status) {
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.academicYear = academicYear;
+        this.semester = semester;
+        this.status = status;
     }
 
-    // Getter methods
-    public String getNIM() { return NIM; }
-    public String getNIM2() { return NIM2; }
-    public String getTahun() { return tahun; }
-    public String getProdi() { return prodi; }
-    public String getStatus() { return status; }
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public String getAcademicYear() {
+        return academicYear;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 
     @Override
     public String toString() {
-        return NIM + "|" + NIM2 + "|" + tahun + "|" + prodi + "|" + status;
+        return courseId + "|" + studentId + "|" + academicYear + "|" + semester + "|" + status;
     }
 }

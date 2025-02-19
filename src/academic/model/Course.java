@@ -5,38 +5,36 @@ package academic.model;
  * @author 12S23046- Anastasya T.B Siahaan
  */
 public class Course {
-
-    private String NIM;
     private String courseID;
+    private String courseName;
     private int sks;
     private String grade;
 
-    public Course(String _NIM, String _courseID, int _sks, String _grade) {
-        this.NIM = _NIM;
-        this.courseID = _courseID;
-        this.sks = _sks;
-        this.grade = _grade;
+    public Course(String courseID, String courseName, int sks, String grade) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.sks = sks;
+        this.grade = grade;
     }
 
-    public String getNIM() {
-        return NIM;
-    }
-
-    public String getcourseID() {
+    public String getCourseID() {
         return courseID;
     }
 
-    public int getsks() {
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public int getSks() {
         return sks;
     }
 
-    public String getgrade() {
+    public String getGrade() {
         return grade;
     }
 
     @Override
     public String toString() {
-        return (NIM + "|" + courseID + "|" + sks + "|" + grade);
+        return courseID + "|" + courseName + "|" + sks + "|" + grade;
     }
-
 }
