@@ -2,45 +2,42 @@ package academic.model;
 
 /**
  * @author 12S23030 - Simorangkir Jonathan
- * @author 12S23046- Anastasya T.B Siahaan
+ * @author 12S23046 - Anastasya T.B Siahaan
  */
 public class Enrollment {
-    private String studentId;
-    private String courseId;
-    private String academicYear;
-    private String semester;
-    private String status;
+    private String code;
+    private String nim;
+    private String years;
+    private String kejadian;
+    private String notes;
 
-    public Enrollment(String studentId, String courseId, String academicYear, String semester, String status) {
-        this.studentId = studentId;
-        this.courseId = courseId;
-        this.academicYear = academicYear;
-        this.semester = semester;
-        this.status = status;
+    public Enrollment(String code, String nim, String years, String kejadian, String notes) {
+        this.code = code;
+        this.nim = nim;
+        this.years = years;
+        this.notes = notes;
+        this.kejadian = kejadian;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public String getCode() {
+        return code;
     }
 
-    public String getCourseId() {
-        return courseId;
+    public String getNim() {
+        return nim;
     }
 
-    public String getAcademicYear() {
-        return academicYear;
+    public String getYears() {
+        return years;
     }
 
-    public String getSemester() {
-        return semester;
-    }
-
-    public String getStatus() {
-        return status;
+    public String getNotes() {
+        return notes;
     }
 
     @Override
     public String toString() {
-        return courseId + "|" + studentId + "|" + academicYear + "|" + semester + "|" + status;
+        return code + "|" + nim + "|" + years + "|" + kejadian + "|" + notes;
     }
+
 }

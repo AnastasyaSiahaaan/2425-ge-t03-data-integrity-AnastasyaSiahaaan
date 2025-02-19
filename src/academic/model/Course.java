@@ -2,39 +2,40 @@ package academic.model;
 
 /**
  * @author 12S23030 - Simorangkir Jonathan
- * @author 12S23046- Anastasya T.B Siahaan
+ * @author 12S23046 - Anastasya T.B Siahaan
  */
+
 public class Course {
-    private String courseID;
-    private String courseName;
-    private int sks;
-    private String grade;
+    private String code;
+    private String name;
+    private String credit;
+    private String passingGrade;
 
-    public Course(String courseID, String courseName, int sks, String grade) {
-        this.courseID = courseID;
-        this.courseName = courseName;
-        this.sks = sks;
-        this.grade = grade;
+    public Course(String code, String name, String credit, String passingGrade) {
+        this.code = code;
+        this.name = name;
+        this.credit = credit;
+        this.passingGrade = passingGrade;
     }
 
-    public String getCourseID() {
-        return courseID;
+    public String getCode() {
+        return code;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getName() {
+        return name;
     }
 
-    public int getSks() {
-        return sks;
+    public String getCredit() {
+        return credit;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getPassingGrade() {
+        return passingGrade;
     }
 
     @Override
     public String toString() {
-        return courseID + "|" + courseName + "|" + sks + "|" + grade;
+        return code + '|' + name + '|' + credit + '|' + passingGrade;
     }
 }
